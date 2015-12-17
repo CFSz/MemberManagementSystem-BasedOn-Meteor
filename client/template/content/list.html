@@ -1,0 +1,35 @@
+<template name="list">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            成员列表
+        </div>
+        <div class="table-responsive panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>成员姓名</th>
+                    <th>手机号</th>
+                    <th>录入时间</th>
+                    <th>录入人</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each people}}
+                <tr>
+                    <td>{{memberName}}</td>
+                    <td>{{memberPhone}}</td>
+                    <td>{{createdAt}}</td>
+                    <td>{{createdBy}}</td>
+                    <td>
+                        <a href="/edit/{{_id}}">编辑</a>
+                        <a href="/detail/{{_id}}">详情</a>
+                    </td>
+                </tr>
+                {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

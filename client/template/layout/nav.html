@@ -1,0 +1,20 @@
+<template name="nav">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-brand">航空学会成员管理</span>
+            </div>
+            <div>
+                <ul class="nav navbar-nav router-nav">
+                    <li data-href="/list"><a>列表</a></li>
+                    <li data-href="/input"><a>录入</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>{{> loginButtons}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
