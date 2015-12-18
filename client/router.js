@@ -1,3 +1,5 @@
+/* 处理页面跳转请求 */
+
 Router.configure({
     layoutTemplate: 'main'
 });

@@ -4,7 +4,14 @@
             信息录入
         </div>
         <div class="table-responsive panel-body">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">成员照片</label>
+                    <div class="col-lg-10">
+                        <input required name="memberPhoto" class="form-control" type="file"
+                               placeholder="请输入成员照片..." value="{{memberPhoto}}">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label">成员姓名</label>
                     <div class="col-lg-10">
