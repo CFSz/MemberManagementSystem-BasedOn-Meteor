@@ -1,4 +1,4 @@
-/*切换导航条*/
+/* 切换导航条 */
 (function () {
     function toggleNavActive(target) {
         $('.router-nav>li[data-href="' + target + '"]').addClass('active').siblings().removeClass('active');
