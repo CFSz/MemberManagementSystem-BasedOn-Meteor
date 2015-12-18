@@ -39,7 +39,7 @@ if (Meteor.isClient) {
      * @param postData 数据
      * @param options 其他设置
      */
-    function saveToDb(act,collection,postData,options){
+    function saveToDb(collection,act,postData,options){
         var options=options||{};
         switch (act){
             case 'insert':
@@ -142,7 +142,7 @@ if (Meteor.isClient) {
         'click .del-btn': function (e) {
             var $target=$(e.currentTarget);
             var curid=$target.data().id;
-            saveToDb('remove',Workmate,{},{
+            saveToDb(Workmate,'remove',{},{
                 curid:curid,
                 successHandle:function(){
                     console.log('删除成功');
