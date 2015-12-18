@@ -1,0 +1,22 @@
+<template name="inputGroup">
+    <div class="form-group">
+        <label class="col-lg-2 control-label">{{label}}</label>
+
+        <div class="col-lg-10">
+            {{#if isImage}}
+            <div style="position: relative">
+                <input name="memberPhoto" class="form-control" type="text" oninvalid="setCustomValidity('不可以为空')"
+                       oninput="setCustomValidity('')">
+
+                <div style="position: absolute;top:0;left: 0;">
+                    {{> upload_bootstrap callbacks=uploadCallback }}
+                </div>
+            </div>
+            {{else}}
+            <input {{required}} name="{{key}}" class="form-control" type="{{type}}"
+                   placeholder="请输入{{label}}..." value="{{value}}" oninvalid="setCustomValidity('不可以为空')"
+                   oninput="setCustomValidity('')">
+            {{/if}}
+        </div>
+    </div>
+</template>

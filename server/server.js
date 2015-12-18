@@ -14,10 +14,9 @@ if (Meteor.isServer) {
             },
             cacheTime: 100,
             mimeTypes: {
-                "xml": "application/xml",
-                "vcf": "text/x-vcard"
+                'xml': 'application/xml',
+                'vcf': 'text/x-vcard'
             }
         });
     });
-
 }
