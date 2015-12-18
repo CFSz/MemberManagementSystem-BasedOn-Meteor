@@ -11,7 +11,10 @@ Router.route('/input', {name: 'input'});
 Router.route('/edit/:_id', {
     name: 'edit',
     data: function () {
-        return Workmate.findOne(this.params._id);
+        var data = conventKeyValueToArray(Workmate.findOne(this.params._id))
+        return {
+            inputGroups: data
+        };
     }
 });
 Router.route('/detail/:_id', {
@@ -20,3 +23,15 @@ Router.route('/detail/:_id', {
         return Workmate.findOne(this.params._id);
     }
 });
+
+function conventKeyValueToArray(obj) {
+    var resultArray = [];
+    for (var index in obj) {
+        var item = obj[index];
+        resultArray.push({
+            label: index,
+            value: item
+        })
+    }
+    return resultArray;
+}

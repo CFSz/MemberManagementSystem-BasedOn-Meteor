@@ -1,4 +1,4 @@
-Template.inputGroup.helpers({
+Template.input_group.helpers({
     uploadCallback: function () {
         return {
             validate: function (file) {

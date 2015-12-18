@@ -12,7 +12,7 @@ if (Meteor.isClient) {
         e.preventDefault();
         var $form = $(e.currentTarget);
         var postData = serializeForm($form, options.defaultData);
-        saveToDb(act, collection, postData, options);
+        saveToDb(collection, act, postData, options);
 
         /**
          * 序列化表单内容,并添加默认值

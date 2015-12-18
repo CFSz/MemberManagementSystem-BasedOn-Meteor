@@ -1,5 +1,5 @@
 <!-- 表单元素模板文件,目前包含图片和文本两种形式 -->
-<template name="inputGroup">
+<template name="input_group">
     <div class="form-group">
         <label class="col-lg-2 control-label">{{label}}</label>
 
@@ -8,14 +8,14 @@
             <div style="position: relative">
                 <input {{required}} name="{{key}}" class="form-control" type="text"
                        oninvalid="setCustomValidity('请上传{{label}}')"
-                       oninput="setCustomValidity('')" value="{{value}}">
+                       obchange="setCustomValidity('')" value="{{value}}">
 
                 <div style="position: absolute;top:0;left: 0;">
                     {{> upload_bootstrap callbacks=uploadCallback }}
                 </div>
 
                 <div class="img-container {{#if value}}{{else}}hide{{/if}}" style="margin-top: 10px">
-                    <img class="preview-img" width="200" src="{{value}}" title="{{key}}" alt="加载图片失败">
+                    <img class="preview-img" width="200" src="{{value}}" title="{{label}}" alt="加载图片失败">
                 </div>
             </div>
             {{else}}
