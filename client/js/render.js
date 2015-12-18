@@ -1,8 +1,9 @@
 /*切换导航条*/
-(function(){
-    function toggleNavActive(target){
-        $('.router-nav>li[data-href="'+target+'"]').addClass('active').siblings().removeClass('active');
+(function () {
+    function toggleNavActive(target) {
+        $('.router-nav>li[data-href="' + target + '"]').addClass('active').siblings().removeClass('active');
     }
+
     Template.list.onRendered(function () {
         toggleNavActive('/list')
     });

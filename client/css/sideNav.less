@@ -1,108 +1,108 @@
 .site-side-nav {
-    li {
-        list-style: none inside;
+  li {
+    list-style: none inside;
+  }
+  & > li > a:focus,
+  & > li > a:hover {
+    background-color: #f8f8f8;
+  }
+  .hsub {
+    border-top: solid 1px #e5e5e5;
+    &:last-child {
+      border-bottom: solid 1px #e5e5e5;
     }
-    & > li > a:focus,
-    & > li > a:hover {
-        background-color: #f8f8f8;
-    }
-    .hsub {
-        border-top: solid 1px #e5e5e5;
-        &:last-child {
-            border-bottom: solid 1px #e5e5e5;
-        }
-        &.active {
-            .dropdown-toggle {
-                border-color: #e5e5e5;
-            }
-            .icon-switch {
-                &:before {
-                    content: '\e259';
-                }
-            }
-            .submenu {
-                display: block;
-            }
-        }
-    }
-    .dropdown-toggle {
-        color: #666;
-        background-color: #f8f8f8;
-        border-bottom: solid 1px transparent;
-        cursor: default;
-    }
-    .glyphicon {
-        font-size: 12px;
-    }
-    .icon-switch {
-        position: relative;
-        left: -3px;
-        min-width: 12px;
+    &.active {
+      .dropdown-toggle {
+        border-color: #e5e5e5;
+      }
+      .icon-switch {
         &:before {
-            content: '\e258';
+          content: '\e259';
         }
-    }
-    .submenu {
-        display: none;
-        position: relative;
-        &:before {
-            content: '';
-            position: absolute;
-            left: 18px;
-            top: 0;
-            bottom: 0;
-            border-left: dotted 1px #ddd;
-            z-index: 1;
-        }
-        padding-left: 0;
-        li {
-            position: relative;
-            border-top: dotted 1px #e4e4e4;
-            &:first-child {
-                border-top: 0;
-            }
-            &:before {
-                content: '';
-                position: absolute;
-                width: 7px;
-                left: 20px;
-                top: 19px;
-                border-top: dotted 1px #ddd;
-                z-index: 1;
-            }
-            &:hover, &.active {
-                .nav-link > .glyphicon {
-                    display: block;
-                }
-                &:before {
-                    display: none;
-                }
-            }
-            &.active {
-                .nav-link {
-                    color: #5cb85c;
-                    background-color: #f8f8f8;
-                }
-            }
-        }
-    }
-    .nav-link {
-        position: relative;
+      }
+      .submenu {
         display: block;
-        padding: 8px 0 8px 36px;
-        background-color: #fff;
-        color: #666;
-        .glyphicon {
-            display: none;
-            position: absolute;
-            left: 14px;
-            top: 12px;
-            background-color: inherit;
-            z-index: 2;
-            color: #5cb85c;
-            &:before {
-                content: '\e258';
-            }
-        }
+      }
     }
+  }
+  .dropdown-toggle {
+    color: #666;
+    background-color: #f8f8f8;
+    border-bottom: solid 1px transparent;
+    cursor: default;
+  }
+  .glyphicon {
+    font-size: 12px;
+  }
+  .icon-switch {
+    position: relative;
+    left: -3px;
+    min-width: 12px;
+    &:before {
+      content: '\e258';
+    }
+  }
+  .submenu {
+    display: none;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      border-left: dotted 1px #ddd;
+      z-index: 1;
+    }
+    padding-left: 0;
+    li {
+      position: relative;
+      border-top: dotted 1px #e4e4e4;
+      &:first-child {
+        border-top: 0;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        width: 7px;
+        left: 20px;
+        top: 19px;
+        border-top: dotted 1px #ddd;
+        z-index: 1;
+      }
+      &:hover, &.active {
+        .nav-link > .glyphicon {
+          display: block;
+        }
+        &:before {
+          display: none;
+        }
+      }
+      &.active {
+        .nav-link {
+          color: #5cb85c;
+          background-color: #f8f8f8;
+        }
+      }
+    }
+  }
+  .nav-link {
+    position: relative;
+    display: block;
+    padding: 8px 0 8px 36px;
+    background-color: #fff;
+    color: #666;
+    .glyphicon {
+      display: none;
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      background-color: inherit;
+      z-index: 2;
+      color: #5cb85c;
+      &:before {
+        content: '\e258';
+      }
+    }
+  }
 }

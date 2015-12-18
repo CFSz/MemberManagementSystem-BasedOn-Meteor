@@ -10,9 +10,13 @@ Router.route('/input', {name: 'input'});
 
 Router.route('/edit/:_id', {
     name: 'edit',
-    data: function() { return Workmate.findOne(this.params._id); }
+    data: function () {
+        return Workmate.findOne(this.params._id);
+    }
 });
 Router.route('/detail/:_id', {
     name: 'detail',
-    data: function() { return Workmate.findOne(this.params._id); }
+    data: function () {
+        return Workmate.findOne(this.params._id);
+    }
 });

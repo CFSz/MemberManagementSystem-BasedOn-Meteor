@@ -1,9 +1,5 @@
 /* 处理ajax请求 */
 
-Router.route('/ajax/fileUpLoad', {
+Router.route('/ajax/fileUpLoad', {});
 
-});
-
-Router.route('/ajax/del', {
-
-});
+Router.route('/ajax/del', {});
