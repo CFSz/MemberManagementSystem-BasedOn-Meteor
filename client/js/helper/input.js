@@ -5,19 +5,19 @@ Template.input.helpers({
             , isImage: true
             , required: 'required'
             , key: 'memberPhoto'
-            , type: 'image'
+            , _type: 'image'
         }
         , {
             label: '姓名'
             , required: 'required'
             , key: 'memberName'
-            , type: 'text'
+            , _type: 'text'
         }
         , {
             label: '手机号'
             , required: 'required'
             , key: 'memberPhone'
-            , type: 'text'
+            , _type: 'text'
         }
     ]
 })

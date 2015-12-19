@@ -4,9 +4,9 @@
         <label class="col-lg-2 control-label">{{label}}</label>
 
         <div class="col-lg-10 input-container">
-            {{#if isImage}}
+            {{#if _type}}
             <div style="position: relative">
-                <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{$type}}"
+                <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{_type}}"
                        class="form-control"
                        oninvalid="setCustomValidity('请上传{{label}}')" obchange="setCustomValidity('')">
 
@@ -19,7 +19,7 @@
                 </div>
             </div>
             {{else}}
-            <input {{required}} name="{{key}}" type="text" data-type="{{$type}}" value="{{value}}"
+            <input {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
                    class="form-control" placeholder="请输入{{label}}..."
                    oninvalid="setCustomValidity('请填写{{label}}')" oninput="setCustomValidity('')">
             {{/if}}

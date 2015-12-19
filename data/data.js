@@ -25,7 +25,19 @@ if (Meteor.isClient) {
             var defaultData = defaultData || {};
             var formData = $form.serializeArray();
             $(formData).each(function (index, item) {
-                resultData[item.name] = item.value;
+                resultData[item.name] = {
+                    value: item.value
+                    , value: item.value
+                    , value: item.value
+                    , _type: 'image'
+                };
+                resultData[item.name] = {
+                    label: '证件照'
+                    , isImage: true
+                    , required: 'required'
+                    , key: 'memberPhoto'
+                    , _type: 'image'
+                }
             });
             $.extend(resultData, defaultData);
             return resultData;
