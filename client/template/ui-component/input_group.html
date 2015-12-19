@@ -6,9 +6,9 @@
         <div class="col-lg-10 input-container">
             {{#if isImage}}
             <div style="position: relative">
-                <input {{required}} name="{{key}}" class="form-control" type="text"
-                       oninvalid="setCustomValidity('请上传{{label}}')"
-                       obchange="setCustomValidity('')" value="{{value}}">
+                <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{$type}}"
+                       class="form-control"
+                       oninvalid="setCustomValidity('请上传{{label}}')" obchange="setCustomValidity('')">
 
                 <div style="position: absolute;top:0;left: 0;">
                     {{> upload_bootstrap callbacks=uploadCallback }}
@@ -19,9 +19,9 @@
                 </div>
             </div>
             {{else}}
-            <input {{required}} name="{{key}}" class="form-control" type="{{type}}"
-                   placeholder="请输入{{label}}..." value="{{value}}" oninvalid="setCustomValidity('请填写{{label}}')"
-                   oninput="setCustomValidity('')">
+            <input {{required}} name="{{key}}" type="text" data-type="{{$type}}" value="{{value}}"
+                   class="form-control" placeholder="请输入{{label}}..."
+                   oninvalid="setCustomValidity('请填写{{label}}')" oninput="setCustomValidity('')">
             {{/if}}
         </div>
     </div>
