@@ -20,6 +20,13 @@ if (Meteor.isClient) {
             toogleActive(e);
         }
     });
+
+    /*录入页面编辑按钮*/
+    Template.input.events({
+        'click .add-btn': function (e) {
+            alert('添加')
+        }
+    });
 }
 
 
