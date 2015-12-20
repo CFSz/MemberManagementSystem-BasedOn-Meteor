@@ -4,7 +4,7 @@
         <label class="col-lg-2 control-label">{{label}}</label>
 
         <div class="col-lg-10 input-container">
-            {{#if _type}}
+            {{#if isImage}}
             <div style="position: relative">
                 <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{_type}}"
                        class="form-control"

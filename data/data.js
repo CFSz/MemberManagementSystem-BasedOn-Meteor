@@ -25,19 +25,24 @@ if (Meteor.isClient) {
             var defaultData = defaultData || {};
             var formData = $form.serializeArray();
             $(formData).each(function (index, item) {
+                var $input = $form.find('[name="' + item.name + '"]');
+                var $label = $input.parentsUntil('.form-group', '.input-container').siblings();
+                var type = $input.data().type;
                 resultData[item.name] = {
-                    value: item.value
+                    label: $label.text()
+                    , key: item.name
                     , value: item.value
-                    , value: item.value
-                    , _type: 'image'
+                    , required: true
+                    , _type: type
+                    , isImage: type == 'image'
                 };
-                resultData[item.name] = {
-                    label: '证件照'
-                    , isImage: true
-                    , required: 'required'
-                    , key: 'memberPhoto'
-                    , _type: 'image'
-                }
+                //resultData[item.name] = {
+                //    label: '证件照'
+                //    , isImage: true
+                //    , required: 'required'
+                //    , key: 'memberPhoto'
+                //    , _type: 'image'
+                //}
             });
             $.extend(resultData, defaultData);
             return resultData;
