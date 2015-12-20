@@ -32,7 +32,7 @@ if (Meteor.isClient) {
                     label: $label.text()
                     , key: item.name
                     , value: item.value
-                    , required: true
+                    , required: 'required'
                     , _type: type
                     , isImage: type == 'image'
                 };
@@ -139,8 +139,8 @@ if (Meteor.isClient) {
     Template.edit.events({
         /* 表单提交事件 */
         'submit form': function (e) {
-            var template = this;
-            var curid = template._id;
+            var data = this;
+            var curid = data._id;
             submitHandle(e, Workmate, 'update', {
                 curid: curid,
                 defaultData: {
