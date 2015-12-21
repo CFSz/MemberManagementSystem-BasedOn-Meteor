@@ -24,7 +24,13 @@ if (Meteor.isClient) {
     /*录入页面编辑按钮*/
     Template.input.events({
         'click .add-btn': function (e) {
-            alert('添加')
+            Router.go('/setting');
+        }
+    });
+    /*录入页面添加按钮*/
+    Template.input.events({
+        'click .add-btn': function (e) {
+            Router.go('/setting');
         }
     });
 }

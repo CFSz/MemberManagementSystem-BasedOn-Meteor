@@ -23,4 +23,10 @@ Template.input_group.helpers({
             }
         }
     }
+    , isImage: function (type) {
+        return 'image' == type;
+    }
+    , isSelect: function (type) {
+        return 'select' == type;
+    }
 })

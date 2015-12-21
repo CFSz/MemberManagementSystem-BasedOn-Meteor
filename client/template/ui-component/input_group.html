@@ -1,10 +1,10 @@
-<!-- 表单元素模板文件,目前包含图片和文本两种形式 -->
+<!-- 表单元素模板文件,目前包含图片,文本,下拉框 -->
 <template name="input_group">
     <div class="form-group">
         <label class="col-lg-2 control-label">{{label}}</label>
 
-        <div class="col-lg-10 input-container">
-            {{#if isImage}}
+        <div class="col-lg-8 input-container">
+            {{#if (isImage _type)}}
             <div style="position: relative">
                 <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{_type}}"
                        class="form-control"
@@ -19,10 +19,23 @@
                 </div>
             </div>
             {{else}}
+            {{#if (isSelect _type)}}
+            <select {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
+                    class="form-control" placeholder="请输入{{label}}...">
+                {{#each selectOptions}}
+                <option value="{{value}}" {{selected}}>{{text}}</option>
+                {{/each}}
+            </select>
+            {{else}}
             <input {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
                    class="form-control" placeholder="请输入{{label}}..."
                    oninvalid="setCustomValidity('请填写{{label}}')" oninput="setCustomValidity('')">
             {{/if}}
+            {{/if}}
+
+        </div>
+        <div class="col-lg-2 control-label" style="padding: 0;text-align: center">
+            <div class="btn btn-default add-btn">编辑</div>
         </div>
     </div>
 </template>

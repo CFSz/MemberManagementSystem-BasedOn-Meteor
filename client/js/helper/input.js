@@ -2,7 +2,6 @@ Template.input.helpers({
     inputGroups: [
         {
             label: '证件照'
-            , isImage: true
             , required: 'required'
             , key: 'memberPhoto'
             , _type: 'image'
