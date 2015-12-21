@@ -1,16 +1,12 @@
 /* 切换导航条 */
 (function () {
-    function toggleNavActive(target) {
-        $('.router-nav>li[data-href="' + target + '"]').addClass('active').siblings().removeClass('active');
+    function toggleNavActive(targetArray) {
+        $(targetArray).each(function (index, item) {
+            Template[item].onRendered(function () {
+                $('.router-nav>li[data-href="' + '/' + item + '"]').addClass('active').siblings().removeClass('active');
+            });
+        })
     }
 
-    Template.list.onRendered(function () {
-        toggleNavActive('/list')
-    });
-    Template.input.onRendered(function () {
-        toggleNavActive('/input')
-    });
-    Template.nav.onRendered(function () {
-        console.log('render nav')
-    });
+    toggleNavActive(['list', 'input', 'setting']);
 })();

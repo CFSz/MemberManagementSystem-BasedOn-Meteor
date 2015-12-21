@@ -7,6 +7,7 @@ Router.configure({
 Router.route('/', {name: 'index'});
 Router.route('/list', {name: 'list'});
 Router.route('/input', {name: 'input'});
+Router.route('/setting', {name: 'setting'});
 
 Router.route('/edit/:_id', {
     name: 'edit',
