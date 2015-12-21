@@ -5,34 +5,33 @@
 
         <div class="col-lg-8 input-container">
             {{#if (isImage _type)}}
-            <div style="position: relative">
-                <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{_type}}"
-                       class="form-control"
-                       oninvalid="setCustomValidity('请上传{{label}}')" obchange="setCustomValidity('')">
+                <div style="position: relative">
+                    <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{_type}}"
+                                        class="form-control"
+                                        oninvalid="setCustomValidity('请上传{{label}}')" obchange="setCustomValidity('')">
 
-                <div style="position: absolute;top:0;left: 0;">
-                    {{> upload_bootstrap callbacks=uploadCallback }}
+                    <div style="position: absolute;top:0;left: 0;">
+                        {{> upload_bootstrap callbacks=uploadCallback }}
+                    </div>
+
+                    <div class="img-container {{#if value}}{{else}}hide{{/if}}" style="margin-top: 10px">
+                        <img class="preview-img" width="200" src="{{value}}" title="{{label}}" alt="加载图片失败">
+                    </div>
                 </div>
-
-                <div class="img-container {{#if value}}{{else}}hide{{/if}}" style="margin-top: 10px">
-                    <img class="preview-img" width="200" src="{{value}}" title="{{label}}" alt="加载图片失败">
-                </div>
-            </div>
             {{else}}
-            {{#if (isSelect _type)}}
-            <select {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
-                    class="form-control" placeholder="请输入{{label}}...">
-                {{#each selectOptions}}
-                <option value="{{value}}" {{selected}}>{{text}}</option>
-                {{/each}}
-            </select>
-            {{else}}
-            <input {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
-                   class="form-control" placeholder="请输入{{label}}..."
-                   oninvalid="setCustomValidity('请填写{{label}}')" oninput="setCustomValidity('')">
+                {{#if (isSelect _type)}}
+                    <select {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
+                                         class="form-control" placeholder="请输入{{label}}...">
+                        {{#each selectOptions}}
+                            <option value="{{value}}" {{selected}}>{{text}}</option>
+                        {{/each}}
+                    </select>
+                {{else}}
+                    <input {{required}} name="{{key}}" type="text" data-type="{{_type}}" value="{{value}}"
+                                        class="form-control" placeholder="请输入{{label}}..."
+                                        oninvalid="setCustomValidity('请填写{{label}}')" oninput="setCustomValidity('')">
+                {{/if}}
             {{/if}}
-            {{/if}}
-
         </div>
         <div class="col-lg-2 control-label" style="padding: 0;text-align: center">
             <div class="btn btn-default add-btn">编辑</div>
