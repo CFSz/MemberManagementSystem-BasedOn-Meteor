@@ -1,0 +1,11 @@
+<!-- 表单元素模板文件,目前包含图片,文本,下拉框 -->
+<template name="form_horizontal">
+    <form class="form-horizontal" role="form">
+        {{#each list}}
+            {{> input_group}}
+        {{/each}}
+
+        {{> button_add}}
+        {{> button_submit}}
+    </form>
+</template>
