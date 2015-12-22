@@ -1,5 +1,5 @@
 Template.setting.helpers({
-    inputGroup: {
+    inputGroups: {
         _id: '1',
         list: [
             {

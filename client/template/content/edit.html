@@ -5,12 +5,7 @@
             编辑
         </div>
         <div class="table-responsive panel-body">
-            <form class="form-horizontal" role="form">
-                {{#each inputGroups}}
-                    {{> input_group}}
-                {{/each}}
-                <button type="submit" class="btn btn-default pull-right">提交</button>
-            </form>
+            {{> form_horizontal inputGroups}}
         </div>
     </div>
 </template>
