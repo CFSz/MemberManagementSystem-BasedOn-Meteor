@@ -1,6 +1,7 @@
 Template.setting.helpers({
     inputGroups: {
         _id: '1',
+        isEdit: false,
         list: [
             {
                 label: '名称'

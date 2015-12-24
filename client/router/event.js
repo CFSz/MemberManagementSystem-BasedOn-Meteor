@@ -9,7 +9,7 @@ if (Meteor.isClient) {
     }
 
     /*顶部导航条*/
-    Template.nav.events({
+    Template.top_nav.events({
         'click .router-nav>li': function (e) {
             toogleActive(e);
         }
