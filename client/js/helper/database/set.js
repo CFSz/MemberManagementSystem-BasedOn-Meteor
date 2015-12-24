@@ -1,5 +1,5 @@
-Template.input.helpers({
-    title: '输入',
+Template.databaseset.helpers({
+    title: '设置数据库',
     inputGroups: {
         list: [
             {

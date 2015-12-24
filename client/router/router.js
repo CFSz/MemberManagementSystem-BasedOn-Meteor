@@ -8,6 +8,7 @@ Router.route('/', {name: 'index'});
 Router.route('/list', {name: 'list'});
 Router.route('/input', {name: 'input'});
 Router.route('/setting', {name: 'setting'});
+Router.route('/databaseset', {name: 'databaseset'});
 
 Router.route('/edit/:_id', {
     name: 'edit',
