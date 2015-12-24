@@ -3,7 +3,7 @@
     <div class="form-group">
         <label class="col-lg-2 control-label">{{label}}</label>
 
-        <div class="col-lg-8 input-container">
+        <div class="col-lg-10 input-container">
             {{#if (isImage _type)}}
                 <div style="position: relative">
                     <input {{required}} name="{{key}}" value="{{value}}" type="text" data-type="{{_type}}"
@@ -32,9 +32,6 @@
                                         oninvalid="setCustomValidity('请填写{{label}}')" oninput="setCustomValidity('')">
                 {{/if}}
             {{/if}}
-        </div>
-        <div class="col-lg-2" style="text-align: center">
-            <div class="control-label btn btn-default add-btn">编辑</div>
         </div>
     </div>
 </template>

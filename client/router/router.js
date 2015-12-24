@@ -17,7 +17,9 @@ Router.route('/edit/:_id', {
         console.log(data)
         return {
             _id: id,
-            inputGroups: data
+            inputGroups: {
+                list: data
+            }
         };
     }
 });
