@@ -1,64 +1,96 @@
-/* 处理页面跳转请求 */
-
 Router.configure({
-    layoutTemplate: 'main'
+    layoutTemplate: 'main',
+    loadingTemplate: 'loading',
+    notFoundTemplate: 'notFound',
+    waitOn: function() {
+        return [Meteor.subscribe('notifications')]
+    }
 });
 
-Router.route('/', {name: 'index'});
-Router.route('/list', {name: 'list'});
-Router.route('/input', {name: 'input'});
-Router.route('/setting', {name: 'setting'});
-Router.route('/databaseset', {name: 'databaseset'});
-
-Router.route('/edit/:_id', {
-    name: 'edit',
-    data: function () {
-        var id = this.params._id;
-        var data = conventKeyValueToArray(Workmate.findOne(id));
-        console.log(data)
+PostsListController = RouteController.extend({
+    template: 'postsList',
+    increment: 5,
+    postsLimit: function() {
+        return parseInt(this.params.postsLimit) || this.increment;
+    },
+    findOptions: function() {
+        return {sort: this.sort, limit: this.postsLimit()};
+    },
+    subscriptions: function() {
+        this.postsSub = Meteor.subscribe('posts', this.findOptions());
+    },
+    posts: function() {
+        return Posts.find({}, this.findOptions());
+    },
+    data: function() {
+        var self = this;
         return {
-            _id: id,
-            inputGroups: {
-                list: data
+            posts: self.posts(),
+            ready: self.postsSub.ready,
+            nextPath: function() {
+                if (self.posts().count() === self.postsLimit())
+                    return self.nextPath();
             }
         };
     }
 });
-Router.route('/detail/:_id', {
-    name: 'detail',
-    data: function () {
-        return Workmate.findOne(this.params._id);
+
+NewPostsController = PostsListController.extend({
+    sort: {submitted: -1, _id: -1},
+    nextPath: function() {
+        return Router.routes.newPosts.path({postsLimit: this.postsLimit() + this.increment})
     }
 });
 
-
-function conventKeyValueToArray(obj) {
-    console.log(obj);
-    var resultArray = [
-        //{
-        //    label: "证件照",
-        //    key: "memberPhoto",
-        //    value: "http://localhost:3000/upload/image/bg-3-lg.png",
-        //    _type: "image",
-        //    isImage: true,
-        //    required: 'required'
-        //}
-    ];
-    for (var index in obj) {
-        if (index === '_id') {
-            continue;
-        }
-        var item = obj[index];
-        if (typeof item._type === 'undefined') {
-            item = {
-                key: index,
-                label: index,
-                value: item,
-                _type: 'text'
-            }
-        }
-        resultArray.push(item);
+BestPostsController = PostsListController.extend({
+    sort: {votes: -1, submitted: -1, _id: -1},
+    nextPath: function() {
+        return Router.routes.bestPosts.path({postsLimit: this.postsLimit() + this.increment})
     }
+});
 
-    return resultArray;
+Router.route('/', {
+    name: 'home',
+    controller: NewPostsController
+});
+
+Router.route('/new/:postsLimit?', {name: 'newPosts'});
+
+Router.route('/best/:postsLimit?', {name: 'bestPosts'});
+
+
+Router.route('/posts/:_id', {
+    name: 'postPage',
+    waitOn: function() {
+        return [
+            Meteor.subscribe('singlePost', this.params._id),
+            Meteor.subscribe('comments', this.params._id)
+        ];
+    },
+    data: function() { return Posts.findOne(this.params._id); }
+});
+
+Router.route('/posts/:_id/edit', {
+    name: 'postEdit',
+    waitOn: function() {
+        return Meteor.subscribe('singlePost', this.params._id);
+    },
+    data: function() { return Posts.findOne(this.params._id); }
+});
+
+Router.route('/submit', {name: 'postSubmit'});
+
+var requireLogin = function() {
+    if (! Meteor.user()) {
+        if (Meteor.loggingIn()) {
+            this.render(this.loadingTemplate);
+        } else {
+            this.render('accessDenied');
+        }
+    } else {
+        this.next();
+    }
 }
+
+Router.onBeforeAction('dataNotFound', {only: 'postPage'});
+Router.onBeforeAction(requireLogin, {only: 'postSubmit'});
