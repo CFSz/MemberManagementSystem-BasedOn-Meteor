@@ -136,10 +136,10 @@ if (Meteor.isClient) {
     });
 
     /* 编辑页面 */
-    Template.input.events({
+    Template.edit.events({
         /* 表单提交事件 */
-        'submit form': function (e) {
-            var data = this;
+        'submit form': function (e, template) {
+            var data = template.data;
             var curid = data._id;
             submitHandle(e, Workmate, 'update', {
                 curid: curid,
