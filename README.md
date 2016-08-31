@@ -10,3 +10,6 @@ key-value
 key-label-required-type-isImage分开储存
 
 调查是否有优于isImage的实现
+
+##20160831
+隐藏未完成的功能
