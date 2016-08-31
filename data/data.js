@@ -113,27 +113,27 @@ if (Meteor.isClient) {
     Template.detail.helpers({});
 
     /* 录入页面 */
-    //Template.input.events({
-    //    /* 表单提交事件 */
-    //    'submit form': function (e) {
-    //        //var template=this;
-    //        submitHandle(e, Workmate, 'insert', {
-    //            defaultData: {
-    //                createdAt: new Date(),
-    //                createdBy: Meteor.user().emails[0].address
-    //            },
-    //            successHandle: function (id) {
-    //                Router.go('detail', {_id: id});
-    //            },
-    //            errorHandle: function (e) {
-    //                alert(e);
-    //            }
-    //        });
-    //    }
-    //    //,'change input[type="file"]':function(e){
-    //    //    console.log('文件变化了');
-    //    //}
-    //});
+    Template.input.events({
+        /* 表单提交事件 */
+        'submit form': function (e) {
+            //var template=this;
+            submitHandle(e, Workmate, 'insert', {
+                defaultData: {
+                    createdAt: new Date(),
+                    createdBy: Meteor.user().emails[0].address
+                },
+                successHandle: function (id) {
+                    Router.go('detail', {_id: id});
+                },
+                errorHandle: function (e) {
+                    alert(e);
+                }
+            });
+        }
+        //,'change input[type="file"]':function(e){
+        //    console.log('文件变化了');
+        //}
+    });
 
     /* 编辑页面 */
     Template.input.events({
