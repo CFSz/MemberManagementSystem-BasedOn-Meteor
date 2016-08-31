@@ -8,5 +8,5 @@
         })
     }
 
-    toggleNavActive(['list', 'input', 'setting']);
+    toggleNavActive(['list', 'input', 'setting', 'databaseset']);
 })();
