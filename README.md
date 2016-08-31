@@ -1,4 +1,4 @@
-# member-management-system-BasedOn-meteor
+# MemberManagementSystem-BasedOn-Meteor
 基于meteor的成员管理系统
 
 #开发进度
