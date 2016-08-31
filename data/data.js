@@ -120,7 +120,7 @@ if (Meteor.isClient) {
             submitHandle(e, Workmate, 'insert', {
                 defaultData: {
                     createdAt: new Date(),
-                    createdBy: Meteor.user().emails[0].address
+                    createdBy: (Meteor.user() && Meteor.user().emails[0].address) || '未登录用户'
                 },
                 successHandle: function (id) {
                     Router.go('detail', {_id: id});
